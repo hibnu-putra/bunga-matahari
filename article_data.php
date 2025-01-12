@@ -70,7 +70,7 @@
                         <input type="file" class="form-control" name="gambar">
                     </div>
                     <div class="mb-3">
-                        <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
+                        <label for="formGroupExampleInput3" class="form-label">Gambar lama</label>
                         <?php
                         if ($row["gambar"] != '') {
                             if (file_exists('img/' . $row["gambar"] . '')) {
