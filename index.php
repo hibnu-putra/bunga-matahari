@@ -136,69 +136,49 @@ include "koneksi.php";
 <!-- article end -->
 
     <!-- gallery begin -->
-    <section id="gallery" class="text-center p-5 bg-danger-subtle">
-      <div class="container">
-        <h1 id="hero" class="fw-bold display-4 pb-3">Gallery</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="https://cdn1-production-images-kly.akamaized.net/kD7e_amsXVZ-3fD-NtT6GgKU-7k=/0x61:1920x1143/640x360/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/2368223/original/039312400_1537962596-sunflower-1627193_1920.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/2022/04/13/sunflower-3550693_1280jpg-20220413090710.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://lindungihutan.com/blog/wp-content/uploads/2023/04/Bunga-Matahari-Morfologi-Jenis-Jenisnya-dan-Cara-Budidaya-1.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://asset-a.grid.id/crop/0x0:0x0/750x504/photo/2022/04/22/bunga-mataharijpg-20220422110745.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img
-                src="https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2022/12/02/3339243927.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
+<section id="gallery" class="text-center p-5 bg-danger-subtle">
+  <div class="container">
+    <h1 class="fw-bold display-4 pb-3">Gallery</h1>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <?php
+        // Ambil data dari database
+        $sql = "SELECT * FROM gallery ORDER BY id ASC"; // Ganti 'gallery' dengan nama tabel Anda
+        $hasil = $conn->query($sql);
+        $isActive = true; // Untuk menandai item aktif pertama
+
+        while ($row = $hasil->fetch_assoc()) {
+          ?>
+          <div class="carousel-item <?= $isActive ? 'active' : '' ?>">
+            <img src="img/<?= $row['gambar'] ?>" class="d-block w-100" alt="" />
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+          <?php
+          $isActive = false; // Set active ke false setelah item pertama
+        }
+        ?>
       </div>
-    </section>
-    <!-- gallery end -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- gallery end -->
 
     <!-- schedule begin -->
     <section id="schedule" class="text-center p-5">
