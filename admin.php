@@ -5,7 +5,7 @@ include "koneksi.php";
 
 //check jika belum ada user yang login arahkan ke halaman login
 if (!isset($_SESSION['username'])) { 
-	header("location:Login.php"); 
+	header("location:login.php"); 
 } 
 ?>
 
