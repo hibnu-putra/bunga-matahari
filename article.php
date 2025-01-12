@@ -40,6 +40,8 @@
     </div>
 </div>
 <!-- Akhir Modal Tambah-->
+</div>
+</div>
 
 <script>
 $(document).ready(function(){
@@ -163,12 +165,12 @@ if (isset($_POST['hapus'])) {
 
     if ($hapus) {
         echo "<script>
-            alert('Hapus data sukses');
+            alert('Hapus Data Sukses');
             document.location='admin.php?page=article';
         </script>";
     } else {
         echo "<script>
-            alert('Hapus data gagal');
+            alert('Hapus Data Gagal');
             document.location='admin.php?page=article';
         </script>";
     }
